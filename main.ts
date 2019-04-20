@@ -31,10 +31,6 @@ Vue.component("product", {
             <button v-on:click="addToCart"
                 :disabled="!inStock"
                 :class="{ disabledButton: !inStock }">Add to Cart</button>
-
-            <div class="cart">
-                <p>Cart({{ cart }})</p>
-            </div>
         </div>
     </div>
     `,
@@ -62,12 +58,11 @@ Vue.component("product", {
                     image: "./assets/vmSocks-blue-onWhite.jpg",
                     qty: 0
                 }
-            ],
-            cart: 0
+            ]
         }
     },
     methods: {
-        addToCart(): void { this.cart++ },
+        addToCart(): void { this.$emit("add-to-cart", this.variants[this.selectedVariant].id); },
         updateProduct(index: number): void {
             this.selectedVariant = index;
         }
@@ -91,6 +86,12 @@ Vue.component("product", {
 var app = new Vue({
     el: "#app",
     data: {
-        premium: true
+        premium: true,
+        cart: [] as number[]
+    },
+    methods: {
+        updateCart(id: number) {
+            this.cart.push(id);
+        }
     }
 });
