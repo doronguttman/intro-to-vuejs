@@ -6,5 +6,6 @@ var app = new Vue({
         image: "./assets/vmSocks-green-onWhite.jpg",
         link: "http://bing.com",
         inventory: 100,
+        onSale: false
     }
 });
