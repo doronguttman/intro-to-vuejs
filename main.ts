@@ -4,6 +4,7 @@ var app = new Vue({
     data: {
         product: "Socks",
         image: "./assets/vmSocks-green-onWhite.jpg",
-        link: "http://bing.com"
+        link: "http://bing.com",
+        inventory: 100,
     }
 });
