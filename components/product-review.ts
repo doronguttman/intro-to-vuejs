@@ -1,6 +1,13 @@
 Vue.component("product-review", {
     template: `
     <form class="review-form" @submit.prevent="onSubmit">
+        <p v-if="errors.length">
+            <b>Please correct the following error(s):</b>
+            <ul>
+                <li v-for="error in errors">{{ error }}</li>
+            </ul>
+        </p>
+
         <p>
             <label for="name">Name:</label>
             <input id="name" v-model="name" placeholder="name">
@@ -31,11 +38,24 @@ Vue.component("product-review", {
         return {
             name: null as string | null,
             review: null as string | null,
-            rating: null as number | null
+            rating: null as number | null,
+            errors: [] as string[]
         }
     },
     methods: {
         onSubmit() {
+            this.errors.splice(0);
+            if (!this.name) {
+                this.errors.push("Name required.");
+            }
+            if (!this.review) {
+                this.errors.push("Review required.");
+            }
+            if (!this.rating) {
+                this.errors.push("Rating required.");
+            }
+            if (this.errors.length > 0) return;
+
             let productReview: IProductReview = {
                 name: this.name || "",
                 review: this.review || "",
