@@ -3,6 +3,7 @@ var app = new Vue({
     el: "#app",
     data: {
         product: "Socks",
-        desc: "Blue socks"
+        image: "./assets/vmSocks-green-onWhite.jpg",
+        link: "http://bing.com"
     }
 });
