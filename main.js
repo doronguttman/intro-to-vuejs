@@ -1,0 +1,9 @@
+"use strict";
+var app = new Vue({
+    el: "#app",
+    data: {
+        product: "Socks",
+        desc: "Blue socks"
+    }
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm1haW4udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBLElBQUksR0FBRyxHQUFHLElBQUksR0FBRyxDQUFDO0lBQ2QsRUFBRSxFQUFFLE1BQU07SUFDVixJQUFJLEVBQUU7UUFDRixPQUFPLEVBQUUsT0FBTztRQUNoQixJQUFJLEVBQUUsWUFBWTtLQUNyQjtDQUNKLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG52YXIgYXBwID0gbmV3IFZ1ZSh7XHJcbiAgICBlbDogXCIjYXBwXCIsXHJcbiAgICBkYXRhOiB7XHJcbiAgICAgICAgcHJvZHVjdDogXCJTb2Nrc1wiLFxyXG4gICAgICAgIGRlc2M6IFwiQmx1ZSBzb2Nrc1wiXHJcbiAgICB9XHJcbn0pOyJdfQ==
