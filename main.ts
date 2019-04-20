@@ -1,11 +1,12 @@
+Vue.config.devtools = true;
 
 var app = new Vue({
     el: "#app",
     data: {
+        brand: "COMP",
         product: "Socks",
-        image: "./assets/vmSocks-green-onWhite.jpg",
+        selectedVariant: 0,
         onSale: false,
-        inStock: true,
         details: [
             "80% cotton",
             "20% polyester",
@@ -15,20 +16,33 @@ var app = new Vue({
             {
                 id: 2234,
                 color: "green",
-                image: "./assets/vmSocks-green-onWhite.jpg"
+                image: "./assets/vmSocks-green-onWhite.jpg",
+                qty: 10
             },
             {
                 id: 2235,
                 color: "blue",
-                image: "./assets/vmSocks-blue-onWhite.jpg"
+                image: "./assets/vmSocks-blue-onWhite.jpg",
+                qty: 0
             }
         ],
         cart: 0,
     },
     methods: {
-        addToCart: function() { this.cart++ },
-        updateProduct: function(variant: {id: number, color: string, image: string}) {
-            this.image = variant.image;
+        addToCart() { this.cart++ },
+        updateProduct(index: number) {
+            this.selectedVariant = index;
+        }
+    },
+    computed: {
+        title() {
+            return this.brand + " " + this.product;
+        },
+        image() {
+            return this.variants[this.selectedVariant].image;
+        },
+        inStock() {
+            return this.variants[this.selectedVariant].qty > 0;
         }
     }
 });
