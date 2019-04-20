@@ -4,8 +4,22 @@ var app = new Vue({
     data: {
         product: "Socks",
         image: "./assets/vmSocks-green-onWhite.jpg",
-        link: "http://bing.com",
-        inventory: 100,
-        onSale: false
+        onSale: false,
+        inStock: true,
+        details: [
+            "80% cotton",
+            "20% polyester",
+            "Gender nutral"
+        ],
+        variants: [
+            {
+                id: 2234,
+                color: "green"
+            },
+            {
+                id: 2235,
+                color: "blue"
+            }
+        ]
     }
 });
