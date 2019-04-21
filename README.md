@@ -1,4 +1,4 @@
-# Learn Vue.js
+# Intro to Vue.js
 In this repo I will implement the lessons from [Vue Mastery][1]'s [Intro to Vue.js][2] course.
 
 ## Vue Essentials Cheat Sheet
