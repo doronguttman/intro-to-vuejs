@@ -32,19 +32,7 @@ Vue.component("product", {
                 :class="{ disabledButton: !inStock }">Add to Cart</button>
         </div>
 
-        <div>
-            <h2>Reviews</h2>
-            <p v-if="reviews.length === 0">There are no reviews yet. Be the first one to review!</p>
-            <ul v-else>
-                <li v-for="review in reviews">
-                    <p>{{ review.name }}<p>
-                    <p>{{ review.review }}</p>
-                    <span v-for="n in review.rating">⭐</span>
-                </li>
-            </ul>
-        </div>
-
-        <product-review @review-submitted="addReview"></product-review>
+        <product-tabs :reviews="reviews"></product-tabs>
     </div>
     `,
     data() {
@@ -79,9 +67,6 @@ Vue.component("product", {
         addToCart(): void { this.$emit("add-to-cart", this.variants[this.selectedVariant].id); },
         updateProduct(index: number): void {
             this.selectedVariant = index;
-        },
-        addReview(review: IProductReview): void {
-            this.reviews.push(review);
         }
     },
     computed: {
@@ -97,5 +82,10 @@ Vue.component("product", {
         shipping(): string | number {
             return this.premium ? "Free" : 2.99;
         }
+    },
+    mounted() {
+        eventBus.$on("review-submitted", (review: IProductReview) => {
+            this.reviews.push(review);
+        });
     }
 });

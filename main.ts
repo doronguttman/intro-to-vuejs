@@ -1,5 +1,7 @@
 Vue.config.devtools = true;
 
+var eventBus = new Vue();
+
 var app = new Vue({
     el: "#app",
     data: {

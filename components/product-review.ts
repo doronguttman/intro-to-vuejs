@@ -61,7 +61,7 @@ Vue.component("product-review", {
                 review: this.review || "",
                 rating: this.rating || 0
             };
-            this.$emit("review-submitted", productReview);
+            eventBus.$emit("review-submitted", productReview);
             this.name = null,
             this.review = null,
             this.rating = null
